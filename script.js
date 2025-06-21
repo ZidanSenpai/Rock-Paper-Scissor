@@ -31,24 +31,35 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == 1 && computerChoice == 2) {
         console.log("Rock was beaten by Paper, You Lose!");
+        computerScore++;
     }
     else if(humanChoice == 1 && computerChoice == 3){
         console.log("Rock beats Paper, You Win!");
+        humanScore++;
     }
     else if(humanChoice == computerChoice){
         console.log("You both chose the same, It's a tie");
     }
     else if(humanChoice == 2 && computerChoice == 1){
         console.log("Paper beats Rock, You Win!");
+        humanScore++;
     }
     else if(humanChoice == 2 && computerChoice == 3){
         console.log("Paper was beaten by Scissors, You Lose!");
+        computerScore++;
     }
     else if(humanChoice == 3 && computerChoice == 1){
         console.log("Scissor was beaten by Rock, You Lose!");
+        computerScore++;
     }
     else if(humanChoice == 3 && computerChoice == 2){
         console.log("Scissor beat Paper, You win!");
+        humanScore++;
     }
 }
-playRound(getHumanChoice(), getComputerChoice());
+for (let i = 0; i <= 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice());   
+}
+console.log(`Your Score is: ${humanScore}`);
+console.log(`The computer's Score is: ${computerScore}`);
+
