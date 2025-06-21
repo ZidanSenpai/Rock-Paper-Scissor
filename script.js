@@ -12,5 +12,20 @@ function getComputerChoice() {
     }
     return choice;
 }
+function getHumanChoice() {
+    let choice = "";
+    let x = prompt("Enter your choice: 1- rock 2- paper 3- Scissor");
+    if (x == 1) {
+        return "Rock";
+    }
+    else if(x==2){
+        return "Paper";
+    }
+    else if(x==3){
+        return "Scissor";
+    }
+    else return "Invalid option";
+}
 let computerChoice = getComputerChoice();
-console.log(computerChoice);
+let humanChoice = getHumanChoice();
+console.log(humanChoice);
