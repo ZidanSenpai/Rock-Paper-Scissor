@@ -1,3 +1,10 @@
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissor = document.getElementById("scissor");
+rock.classList.toggle("toggled");
+paper.classList.toggle("toggled");
+paper.classList.toggle("toggled");
+
 function getComputerChoice() {
     let x = Math.random();
     if (x <= 0.33) return 1;
@@ -6,23 +13,21 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let x = prompt("Enter your choice: rock, paper, scissors");
-    let y = x.toLowerCase();
-    if (y == "rock") return 1;
-    else if (y == "paper") return 2;
-    else if (y == "scissors") return 3;
-    else return 4; // Invalid input
+    rock.addEventListener("click", ()=>{
+        return 1;
+    })
+    paper.addEventListener("click", ()=>{
+        return 2;
+    })
+    scissor.addEventListener("click", ()=>{
+        return 3;
+    })
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice == 4) {
-        console.log("Invalid choice. Please enter rock, paper, or scissors.");
-        return;
-    }
-
     if (humanChoice == 1 && computerChoice == 2) {
         console.log("Rock was beaten by Paper, You Lose!");
         computerScore++;
