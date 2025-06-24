@@ -49,3 +49,6 @@ button:hover{
 button:active{
     background-color: #a5b5c5;
 }
+.selected button {
+  background-color: #28a745 !important; /* Green for selected choice */
+}
