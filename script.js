@@ -1,65 +1,53 @@
 function getComputerChoice() {
     let x = Math.random();
-    let choice = "";
-    if (x<= 0.33) {
-        choice = 1;
-    }
-    else if (x<=0.66 && x> 0.33 ) {
-        choice = 2;
-    }
-    else if (x<=0.99 && x > 0.66){
-        choice = 3;
-    }
-    return choice;
+    if (x <= 0.33) return 1;
+    else if (x <= 0.66) return 2;
+    else return 3;
 }
+
 function getHumanChoice() {
-    let x = prompt("Enter your choice: rock, paper, scissor");
+    let x = prompt("Enter your choice: rock, paper, scissors");
     let y = x.toLowerCase();
-    if (y == "rock") {
-        return 1;
-    }
-    else if(y=="paper"){
-        return 2;
-    }
-    else if(y=="scissor"){
-        return 3;
-    }
-    else return 4;
+    if (y == "rock") return 1;
+    else if (y == "paper") return 2;
+    else if (y == "scissors") return 3;
+    else return 4; // Invalid input
 }
+
 let humanScore = 0;
 let computerScore = 0;
+
 function playRound(humanChoice, computerChoice) {
+    if (humanChoice == 4) {
+        console.log("Invalid choice. Please enter rock, paper, or scissors.");
+        return;
+    }
+
     if (humanChoice == 1 && computerChoice == 2) {
         console.log("Rock was beaten by Paper, You Lose!");
         computerScore++;
-    }
-    else if(humanChoice == 1 && computerChoice == 3){
-        console.log("Rock beats Paper, You Win!");
+    } else if (humanChoice == 1 && computerChoice == 3) {
+        console.log("Rock beats Scissors, You Win!");
         humanScore++;
-    }
-    else if(humanChoice == computerChoice){
+    } else if (humanChoice == computerChoice) {
         console.log("You both chose the same, It's a tie");
-    }
-    else if(humanChoice == 2 && computerChoice == 1){
+    } else if (humanChoice == 2 && computerChoice == 1) {
         console.log("Paper beats Rock, You Win!");
         humanScore++;
-    }
-    else if(humanChoice == 2 && computerChoice == 3){
+    } else if (humanChoice == 2 && computerChoice == 3) {
         console.log("Paper was beaten by Scissors, You Lose!");
         computerScore++;
-    }
-    else if(humanChoice == 3 && computerChoice == 1){
-        console.log("Scissor was beaten by Rock, You Lose!");
+    } else if (humanChoice == 3 && computerChoice == 1) {
+        console.log("Scissors was beaten by Rock, You Lose!");
         computerScore++;
-    }
-    else if(humanChoice == 3 && computerChoice == 2){
-        console.log("Scissor beat Paper, You win!");
+    } else if (humanChoice == 3 && computerChoice == 2) {
+        console.log("Scissors beat Paper, You Win!");
         humanScore++;
     }
 }
 
-const play = document.getElementById("#play");
-play.addEventListener("click", ()=> {
-    playRound();
-})
-
+const play = document.getElementById("play");
+play.addEventListener("click", () => {
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log("Human Score:", humanScore, "Computer Score:", computerScore);
+});
