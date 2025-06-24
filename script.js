@@ -57,9 +57,9 @@ function playRound(humanChoice, computerChoice) {
         humanScore++;
     }
 }
-for (let i = 0; i <= 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());   
-}
-console.log(`Your Score is: ${humanScore}`);
-console.log(`The computer's Score is: ${computerScore}`);
+
+const play = document.getElementById("#play");
+play.addEventListener("click", ()=> {
+    playRound();
+})
 
